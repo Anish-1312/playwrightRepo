@@ -10,7 +10,7 @@ test('googleTest', async ({ page }) => {
   await expect(page.getByLabel('Sign in')).toContainText('Sign in');
   await expect(page.getByRole('search')).toContainText('Google Search');
   await expect(page.getByRole('search')).toContainText('I\'m Feeling Lucky');
-  await expect(page.locator('#SIvCob')).toContainText('Google offered in:');
+  await expect(page.getByText('Google offered in')).toBeVisible();
   await page.getByRole('combobox', { name: 'Search' }).click();
   await page.getByRole('combobox', { name: 'Search' }).fill('Search in google');
   await expect(page.getByRole('combobox', { name: 'Search' })).toHaveValue('Search in google');
